@@ -9,10 +9,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 - Python 3.x installé sur votre machine
 - Les packages Python requis : `cv2`, `numpy`, `face_recognition`, `requests` et `PIL`. Vous pouvez les installer en exécutant la commande suivante :
 
-pip install opencv-python numpy face_recognition requests pillow flask
-
-markdown
-Copy code
+```pip install opencv-python numpy face_recognition requests pillow flask```
 
 ## Utilisation
 
@@ -28,19 +25,13 @@ personne2/
 personne2.jpg
 personne2_2.jpg
 
-markdown
-Copy code
-
 3. Assurez-vous d'avoir les fichiers YOLO pré-entrainés (`yolov3.weights` et `yolov3.cfg`) dans le même répertoire que le script Python.
   -> Pour récupérer yolov3.weights : https://github.com/patrick013/Object-Detection---Yolov3/blob/master/model/yolov3.weights
 4. Modifiez la variable `last_image` avec l'URL de l'API pour récupérer l'image la plus récente.
 
 5. Exécutez le script Python en utilisant la commande suivante :
 
-python app.py
-
-rust
-Copy code
+```python app.py```
 
 Le serveur Flask démarrera et sera prêt à recevoir des requêtes.
 
