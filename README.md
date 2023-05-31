@@ -9,9 +9,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 - Python 3.x installé sur votre machine
 - Les packages Python requis : `cv2`, `numpy`, `face_recognition`, `requests` et `PIL`. Vous pouvez les installer en exécutant la commande suivante :
 
-```pip install numpy face_recognition requests pillow flask```
-```pip install opencv-python===4.5.5.62```
-```pip install tensorflow```
+```pip install numpy```  
+```pip install face_recognition```  
+```pip install requests```  
+```pip install pillow```  
+```pip install flask```  
+```pip install opencv-python===4.5.5.62```  
+```pip install tensorflow```  
 
 ## Utilisation
 
