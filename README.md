@@ -37,7 +37,7 @@ personne2_2.jpg
 
 5. Exécutez le script Python en utilisant la commande suivante :
 
-```python app.py```
+```python main.py```
 
 Le serveur Flask démarrera et sera prêt à recevoir des requêtes.
 
