@@ -1,6 +1,3 @@
 yolov3.weights
-yolov3.cfg
-coco.names
 *.weights
-*.cfg
 .idea
