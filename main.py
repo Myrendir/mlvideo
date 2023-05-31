@@ -16,7 +16,6 @@ classes = []
 
 person_id = 'person'
 
-# Charger les images des visages connus
 known_faces = []
 known_names = []
 
@@ -34,24 +33,19 @@ for dir_name in os.listdir(image_dir):
 
 @app.route('/')
 def detect_faces():
-    # Récupérer l'URL de la dernière image depuis l'API
     response = requests.get(last_image)
     img = Image.open(io.BytesIO(response.content))
     img = np.array(img)
 
-    # Faire la reconnaissance faciale
     faces = face_recognition.face_locations(img)
     encodings = face_recognition.face_encodings(img, faces)
 
     for face_encoding in encodings:
-        # Comparer les visages connus avec les visages détectés
         matches = face_recognition.compare_faces(known_faces, face_encoding, tolerance=0.5)
 
-        # Si le visage détecté est connu, renvoyer une réponse 200
         if True in matches:
             return jsonify({"status": 200})
 
-    # Si aucun visage reconnu n'est détecté, renvoyer une réponse 204
     return jsonify({"status": 204})
 
 
