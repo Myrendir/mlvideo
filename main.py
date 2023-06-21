@@ -11,7 +11,7 @@ app = Flask(__name__)
 last_image = 'http://45.147.99.71:3000/api/images/last'
 image_dir = './images'
 
-net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
+net = cv2.dnn.readNet("yolov3.cfg", "yolov3.weights")
 classes = []
 
 person_id = 'person'
@@ -40,14 +40,24 @@ def detect_faces():
     faces = face_recognition.face_locations(img)
     encodings = face_recognition.face_encodings(img, faces)
 
-    for face_encoding in encodings:
-        matches = face_recognition.compare_faces(known_faces, face_encoding, tolerance=0.5)
+    recognized_person = None
 
+    for idx, face_encoding in enumerate(encodings):
+        matches = face_recognition.compare_faces(known_faces, face_encoding, tolerance=0.5)
         if True in matches:
-            return jsonify({"status": 200})
+            recognized_person = known_names[idx]
+            break
+
+    if recognized_person:
+        return jsonify(
+            {
+                "status": 200,
+                "target": recognized_person
+            }
+        )
 
     return jsonify({"status": 204})
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8001)
