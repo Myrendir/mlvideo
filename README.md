@@ -41,7 +41,7 @@ personne2_2.jpg
 
 Le serveur Flask démarrera et sera prêt à recevoir des requêtes.
 
-6. Accédez à l'URL `http://localhost:5000` dans votre navigateur ou utilisez un outil comme cURL pour envoyer une requête GET à l'API. Vous recevrez une réponse JSON avec le statut 200 si un visage reconnu est détecté dans l'image la plus récente, ou le statut 204 si aucun visage reconnu n'est détecté.
+6. Accédez à l'URL `http://localhost:8001` dans votre navigateur ou utilisez un outil comme cURL pour envoyer une requête GET à l'API. Vous recevrez une réponse JSON avec le statut 200 si un visage reconnu est détecté dans l'image la plus récente, ou le statut 204 si aucun visage reconnu n'est détecté.
 
 ## Personnalisation
 
