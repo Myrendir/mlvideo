@@ -56,7 +56,8 @@ def detect_faces():
         return jsonify(
             {
                 "status": 200,
-                "target": recognized_person
+                "target": recognized_person,
+                "face_location": []
             }
         )
     elif recognized_face_location:
