@@ -41,11 +41,15 @@ def detect_faces():
     encodings = face_recognition.face_encodings(img, faces)
 
     recognized_person = None
+    recognized_face_location = None
 
     for idx, face_encoding in enumerate(encodings):
         matches = face_recognition.compare_faces(known_faces, face_encoding, tolerance=0.5)
         if True in matches:
             recognized_person = known_names[idx]
+            break
+        else:
+            recognized_face_location = faces[idx]
             break
 
     if recognized_person:
@@ -53,6 +57,13 @@ def detect_faces():
             {
                 "status": 200,
                 "target": recognized_person
+            }
+        )
+    elif recognized_face_location:
+        return jsonify(
+            {
+                "status": 200,
+                "face_location": recognized_face_location
             }
         )
 

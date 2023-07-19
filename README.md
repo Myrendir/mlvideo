@@ -41,7 +41,77 @@ personne2_2.jpg
 
 Le serveur Flask démarrera et sera prêt à recevoir des requêtes.
 
-6. Accédez à l'URL `http://localhost:8001` dans votre navigateur ou utilisez un outil comme cURL pour envoyer une requête GET à l'API. Vous recevrez une réponse JSON avec le statut 200 si un visage reconnu est détecté dans l'image la plus récente, ou le statut 204 si aucun visage reconnu n'est détecté.
+Accédez à l'URL http://localhost:8001 dans votre navigateur ou utilisez un outil comme cURL pour envoyer des requêtes à l'API. Voici les différentes routes disponibles :
+
+1. GET / : Cette route effectue la détection des visages dans l'image la plus récente et renvoie une réponse JSON.
+   - Statut de la réponse : 200 si un visage reconnu est détecté dans l'image la plus récente, 204 si aucun visage reconnu n'est détecté.
+   - Réponse JSON :
+     - Pour le statut 200 (visage reconnu) :
+       ```
+       {
+         "status": 200,
+         "target": "Nom de la personne reconnue"
+       }
+       ```
+     - Pour le statut 204 (aucun visage reconnu) :
+       ```
+       {
+         "status": 204
+       }
+       ```
+
+2. POST /add_photos : Cette route permet d'ajouter des photos pour l'entraînement du modèle de reconnaissance faciale.
+   - Paramètres :
+     - name : Le nom de la personne associée aux photos.
+     - photos : Les fichiers de photos à télécharger.
+   - Réponse JSON :
+     - Pour le statut 200 (succès) :
+       ```
+       {
+         "status": 200,
+         "message": "Photos ajoutées avec succès."
+       }
+       ```
+     - Pour le statut 400 (mauvaise requête) :
+       ```
+       {
+         "status": 400,
+         "message": "Paramètre 'name' manquant."
+       }
+       ```
+       ou
+       ```
+       {
+         "status": 400,
+         "message": "Aucune photo téléchargée."
+       }
+       ```
+
+3. POST /delete_photos : Cette route permet de supprimer les photos associées à une personne.
+   - Paramètre :
+     - name : Le nom de la personne dont les photos doivent être supprimées.
+   - Réponse JSON :
+     - Pour le statut 200 (succès) :
+       ```
+       {
+         "status": 200,
+         "message": "Photos supprimées avec succès."
+       }
+       ```
+     - Pour le statut 400 (mauvaise requête) :
+       ```
+       {
+         "status": 400,
+         "message": "Paramètre 'name' manquant."
+       }
+       ```
+     - Pour le statut 404 (non trouvé) :
+       ```
+       {
+         "status": 404,
+         "message": "Dossier non trouvé."
+       }
+       ```
 
 ## Personnalisation
 
