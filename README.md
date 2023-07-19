@@ -6,7 +6,7 @@ Ce projet implémente un service de reconnaissance faciale à l'aide de Flask, O
 
 Avant de commencer, assurez-vous d'avoir les éléments suivants :
 
-- Python 3.x installé sur votre machine
+- Python 3.9 installé sur votre machine
 - Les packages Python requis : `cv2`, `numpy`, `face_recognition`, `requests` et `PIL`. Vous pouvez les installer en exécutant la commande suivante :
 
 ```pip install numpy```  
